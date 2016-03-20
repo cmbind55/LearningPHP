@@ -48,7 +48,7 @@ curl -X GET --header "Accept: application/json"
 -->
 
 <?php
-	$result = CallAPI("POST", "https://api.clashofclans.com/v1/clans", "name=awesome%20yankees");
+	$result = CallAPI("GET", "https://api.clashofclans.com/v1/clans", "name=awesome%20yankees");
 	echo $result;
 ?>
 
