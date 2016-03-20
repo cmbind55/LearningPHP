@@ -40,11 +40,12 @@ function CallAPI($method, $url, $data = false)
     return $result;
 }
 ?>
+<!--
 https://api.clashofclans.com/v1/clans?name=awesome%20yankees
 curl -X GET --header "Accept: application/json" 
 --header "authorization: Bearer <API token>" 
 "https://api.clashofclans.com/v1/clans?name=awesome%20yankees"
-
+-->
 
 <?php
 	$result = CallAPI("POST", "https://api.clashofclans.com/v1/clans", "name=awesome%20yankees")
