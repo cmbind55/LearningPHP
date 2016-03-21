@@ -26,12 +26,14 @@ function CallAPI($method, $url, $data = false)
                 $url = sprintf("%s?%s", $url, http_build_query($data));
     }
 
-    // Optional Authentication:
-    curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-    curl_setopt($curl, CURLOPT_USERPWD, "username:password");
-
+    // Authentication:
+    $authorization = "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImE2M2E2ODljLWI3ZGQtNDY1Yi04NzJiLTQ1OWYyOWIwOTY5NiIsImlhdCI6MTQ1ODQ0NTU0Mywic3ViIjoiZGV2ZWxvcGVyL2IyYjA0YTIwLTk1ODItMzVmMS0yYjRkLWRjZTMzM2JkMjJmMiIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjEwNC4xMzEuMTY1LjE2MiJdLCJ0eXBlIjoiY2xpZW50In1dfQ.P0UhwAuGUJyi5L_-Xkbqb-vEFDcCJnp-wBZyPV2OWgZX9or5rXhXP1a0kQCfjvSdBzkXrPiL1LHB_SkAs326RA";
+    
+    curl_setopt($ch, CURLOPT_HTTPHEADER, 
+        array('Content-Type: application/json',
+        $authorization ));
     curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
     $result = curl_exec($curl);
 
