@@ -24,7 +24,7 @@ function CallAPI($method, $url, $data = false)
         default:
             if ($data){
                 $url = sprintf("%s?%s", $url, http_build_query($data));
-                echo ("default.  data:" . $data . " url:" . $url . "<\br>\n");
+                echo ("default.  data:" . $data . " url:" . $url . "<br>");
             }
     }
 
