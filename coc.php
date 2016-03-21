@@ -24,7 +24,7 @@ function CallAPI($method, $url, $data = false)
         default:
             if ($data){
                 $url = sprintf("%s?%s", $url, http_build_query($data));
-                echo ("default.  data:" . $data . "url:" . $url);
+                echo ("default.  data:" . $data . " url:" . $url . "<\br>\n");
             }
     }
 
@@ -54,7 +54,7 @@ curl -X GET --header "Accept: application/json"
 <?php
 	$result = CallAPI("GET", 
         "https://api.clashofclans.com/v1/clans",
-        "name=awesome%20yankees");
+        array('name','awesome%20yankees');
 	echo $result;
 ?>
 
