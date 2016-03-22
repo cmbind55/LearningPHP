@@ -54,7 +54,7 @@ curl -X GET --header "Accept: application/json"
 <?php
 	$result = CallAPI("GET", 
         "https://api.clashofclans.com/v1/clans",
-        array('name' => 'awesome%20yankees', 'limit' => '12'));
+        array('name' => 'awesome%20yankees', 'limit' => '18'));
 	echo $result;
 ?>
 
